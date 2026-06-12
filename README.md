@@ -44,6 +44,7 @@ The goal of this repository is to provide a single place where engineers can rev
 | Route53              | [AWS/route53.md](AWS/route53.md)                                       |
 | CloudFront           | [AWS/cloudfront.md](AWS/cloudfront.md)                                 |
 | EKS                  | [AWS/eks.md](AWS/eks.md)                                               |
+| DevOps-Fundamentals  | [DevOps-Fundamentals/devops-fundamentals.md](DevOps-Fundamentals/devops-fundamentals.md) |
 | Terraform            | [Terraform/terraform.md](Terraform/terraform.md)                       |
 | Kubernetes           | [Kubernetes/kubernetes.md](Kubernetes/kubernetes.md)                   |
 | Docker               | [Docker/docker.md](Docker/docker.md)                                   |
