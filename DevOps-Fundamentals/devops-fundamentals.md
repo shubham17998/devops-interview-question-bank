@@ -11,13 +11,16 @@
 8. What is GitOps?
 9. What is Shift-Left testing?
 10. What is DevSecOps?
+11. What is a Git merge conflict and how do you resolve it?
+12. Difference between Git Reset and Git Revert?
+13. Difference between Git Rebase and Git Stash?
 
 ## Collaboration & Process
-11. How do development and operations teams collaborate in DevOps?
-12. What challenges have you faced while implementing DevOps practices?
-13. How do you measure DevOps success?
-14. What KPIs do you track for CI/CD pipelines?
-15. How do you handle change management in production?
+14. How do development and operations teams collaborate in DevOps?
+15. What challenges have you faced while implementing DevOps practices?
+16. How do you measure DevOps success?
+17. What KPIs do you track for CI/CD pipelines?
+18. How do you handle change management in production?
 
 ## Release Management
 16. What is Continuous Integration?
