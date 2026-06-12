@@ -1,11 +1,6 @@
 # 🚀 DevOps & Cloud Interview Question Bank
 
 > A curated collection of AWS, DevOps, SRE, Kubernetes, Terraform, Docker, CI/CD, Linux, Monitoring, Security, and Production Scenario interview questions.
-
-![GitHub Repo stars](https://img.shields.io/github/stars/shubham17998/devops-interview-question-bank?style=for-the-badge)
-![GitHub forks](https://img.shields.io/github/forks/shubham17998/devops-interview-question-bank?style=for-the-badge)
-![GitHub issues](https://img.shields.io/github/issues/shubham17998/devops-interview-question-bank?style=for-the-badge)
-
 ---
 
 ## 📖 About
