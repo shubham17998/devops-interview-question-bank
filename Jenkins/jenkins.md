@@ -1,6 +1,7 @@
 # Jenkins Interview Questions
 
 ## Pipeline Types
+
 1. What are the types of Jenkins pipelines?
 2. Difference between Freestyle, Pipeline and Multibranch jobs?
 3. Difference between Declarative and Scripted Pipeline?
@@ -8,34 +9,47 @@
 5. What are Parallel Stages?
 
 ## Agents & Nodes
+
 6. What is a Jenkins Agent?
-7. Difference between Node and Agent?
-8. What is an Agent?
-9. What is a Node?
-10. How do you configure Jenkins agents?
-11. Can a pipeline use multiple agents?
+7. What is a Jenkins Node?
+8. Difference between Node and Agent?
+9. How do you configure Jenkins agents?
+10. Can a pipeline use multiple agents?
+
+## Pipeline Fundamentals
+
+11. What is the role of a Jenkinsfile?
+12. How do you configure a Jenkins pipeline for smooth deployments?
+13. Give an example Jenkins pipeline.
+14. Explain your Jenkins pipeline workflow.
+15. Explain your end-to-end CI/CD pipeline.
 
 ## CI/CD
-12. Why do we use Jenkins?
-13. Where do you store artifacts?
-14. What are artifacts?
-15. How do you migrate Jenkins pipelines to GitHub Actions?
-16. How do you implement rollback in Jenkins?
-17. How do you implement approval before deployment?
+
+16. Why do we use Jenkins?
+17. Where do you store artifacts?
+18. What are artifacts?
+19. What are upstream and downstream jobs?
+20. How do you migrate Jenkins pipelines to GitHub Actions?
+21. How do you implement rollback in Jenkins?
+22. How do you implement approval before deployment?
 
 ## Security & Secrets
-18. How do you secure credentials in Jenkins?
-19. How do you rotate secrets without downtime?
-20. How do you prevent secret leakage in logs and artifacts?
-21. How do you secure Terraform execution from Jenkins?
+
+23. How do you secure credentials in Jenkins?
+24. How do you rotate secrets without downtime?
+25. How do you prevent secret leakage in logs and artifacts?
+26. How do you secure Terraform execution from Jenkins?
 
 ## Optimization & Monitoring
-22. How do you optimize pipeline execution time?
-23. How do you monitor pipeline failures?
-24. How do you optimize a slow pipeline?
-25. How do you fix a broken CI/CD pipeline?
-26. Why would you use the re-run option?
 
-## GitLab CI/CD
-27. What is workflow_dispatch?
-28. Where does GitLab CI/CD run?
+27. How do you optimize pipeline execution time?
+28. How do you monitor pipeline failures?
+29. How do you optimize a slow pipeline?
+30. How do you fix a broken CI/CD pipeline?
+31. Why would you use the re-run option?
+
+## GitHub Actions / GitLab CI
+
+32. What is workflow_dispatch?
+33. Where does GitLab CI/CD run?
