@@ -5,7 +5,6 @@
 ![GitHub Repo stars](https://img.shields.io/github/stars/shubham17998/devops-interview-question-bank?style=for-the-badge)
 ![GitHub forks](https://img.shields.io/github/forks/shubham17998/devops-interview-question-bank?style=for-the-badge)
 ![GitHub issues](https://img.shields.io/github/issues/shubham17998/devops-interview-question-bank?style=for-the-badge)
-![License](https://img.shields.io/badge/License-MIT-blue?style=for-the-badge)
 
 ---
 
@@ -175,7 +174,3 @@ If this repository helped you:
 📢 Share it with fellow engineers
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License.
