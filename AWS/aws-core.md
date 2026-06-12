@@ -20,6 +20,7 @@
 18. How do you attach an ACM certificate to ALB?
 19. How do you attach an external certificate to ALB?
 20. How do you reduce CloudWatch costs?
+21. How do you integrate application metrics with Prometheus?
 
 ## Storage & Access
 21. How do you give temporary access to a private S3 object?
