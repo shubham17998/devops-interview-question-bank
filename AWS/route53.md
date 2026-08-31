@@ -15,13 +15,15 @@
 
 ## Routing Policies
 10. What Route53 routing policies are available?
-11. What are the Route53 Routing Policies?
-12. Difference between Weighted and Latency Routing?
-13. What is Failover Routing?
+11. Difference between Weighted and Latency Routing?
+12. What is Failover Routing?
 
 ## Health Checks
-14. What are Route53 Health Checks?
+13. What are Route53 Health Checks?
 
 ## DNS Troubleshooting
-15. How do DNS resolution and Route53 work?
-16. What should you check when DNS resolution fails?
+14. How do DNS resolution and Route53 work?
+15. What should you check when DNS resolution fails?
+
+## Scenarios
+16. You want to redirect traffic from x.company.in to company.in/x. How would you achieve it?

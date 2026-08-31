@@ -43,14 +43,15 @@
 
 31. Difference between Monitoring and Logging?
 32. Difference between Metrics and Logs?
-33. Benefits of having a single monitoring solution?
-34. CloudWatch vs New Relic?
+33. What is the difference between Logs, Metrics, and Traces?
+34. Benefits of having a single monitoring solution?
+35. CloudWatch vs New Relic?
 
 ## Advanced Scenarios
 
-35. How do you monitor Kubernetes nodes and pods?
-36. How do you monitor an application if developers forgot to add a health endpoint?
-37. How would you create a health check endpoint outside the application?
-38. How do you expose health status based on CPU usage?
-39. How do you identify whether an issue is infrastructure-level or application-level?
-40. How do you analyze 500 errors without a log aggregator?
+36. How do you monitor Kubernetes nodes and pods?
+37. How do you monitor an application if developers forgot to add a health endpoint?
+38. How would you create a health check endpoint outside the application?
+39. How do you expose health status based on CPU usage?
+40. How do you identify whether an issue is infrastructure-level or application-level?
+41. How do you analyze 500 errors without a log aggregator?

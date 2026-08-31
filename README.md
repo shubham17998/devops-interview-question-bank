@@ -52,6 +52,8 @@ The goal of this repository is to provide a single place where engineers can rev
 | GitHub Actions       | [GitHub-Actions/github-actions.md](GitHub-Actions/github-actions.md)   |
 | Ansible              | [Ansible/ansible.md](Ansible/ansible.md)                               |
 | Linux                | [Linux/linux.md](Linux/linux.md)                                       |
+| Git                  | [Git/git.md](Git/git.md)                                               |
+| Networking           | [Networking/networking.md](Networking/networking.md)                   |
 | Monitoring           | [Monitoring/monitoring.md](Monitoring/monitoring.md)                   |
 | Security             | [Security/security.md](Security/security.md)                           |
 | Kafka                | [Kafka/kafka.md](Kafka/kafka.md)                                       |
@@ -139,8 +141,25 @@ The goal of this repository is to provide a single place where engineers can rev
 2. Read the questions.
 3. Try answering without looking at documentation.
 4. Verify your answers using official documentation.
-5. Practice production scenario questions regularly.
-6. Revisit weak topics and improve your understanding.
+5. Work through the **Hands-on Exercises** at the end of the Git, Docker, Kubernetes, Terraform, Ansible, Linux, and AWS files, plus the **Coding Practice** section in DevOps-Fundamentals — each pairs a task with a worked solution so you can practice, not just recall.
+6. Practice production scenario questions regularly.
+7. Revisit weak topics and improve your understanding.
+
+---
+
+## 🧭 How To Prepare for DevOps/SRE Interviews
+
+Opinionated, but battle-tested advice for getting interview-ready:
+
+* **Linux is non-negotiable.** Most DevOps roles assume it. Know processes, the filesystem, debugging tools, and how to troubleshoot — not just command syntax.
+* **Learn to code, at least a little.** Scripting lets you automate manual work and build tools. Practice by writing real scripts, not just reading about them — and in an interview, always answer in the language you know best, not the one you assume the company uses.
+* **Practice architecture and design questions.** Be ready to describe how you'd design a CI pipeline, a logging pipeline that ingests from thousands of apps, or a microservices system — and how your answer changes at scale.
+* **Know your tools deeply, not just by name.** For every tool on your resume, be ready to explain: what it does, why you chose it over alternatives, how it works internally, and the best practices you follow when using it.
+* **Turn job requirements into practice scenarios.** "Knowledge of CI/CD" → build a pipeline for a real project. "Experience with provisioning" → stand up a server. "Experience with scripting" → automate something you currently do by hand.
+* **Build your own project.** It gives you something concrete to talk about, forces you to make real design decisions, and is a natural source of interview stories.
+* **Know your resume cold.** Anything you wrote on it is fair game — be ready to defend every line.
+* **Research the company.** What it does, what it ships, and why its product stands apart — this doubles as a good question to ask them.
+* **Interview them back.** Team size, work-life balance, growth path, and role clarity matter as much to you as your answers do to them.
 
 ---
 
