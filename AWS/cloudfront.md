@@ -2,37 +2,86 @@
 
 ## Basics
 1. What is CloudFront?
+   AWS's managed CDN (Content Delivery Network) — it caches and serves content from edge locations close to users, reducing latency and offloading traffic from the origin.
+
 2. What is a CDN?
+   A globally distributed network of caching servers (edge locations) that store copies of content close to end users, reducing latency, origin load, and bandwidth cost compared to serving every request from a single origin.
+
 3. What is an Edge Location?
+   A physical CloudFront point-of-presence, geographically distributed worldwide, that caches content and serves it to nearby users with lower latency than reaching back to the origin.
+
 4. What is an Origin?
+   The source CloudFront pulls content from when it's not already cached — typically an S3 bucket, an ALB/EC2, or any custom HTTP server.
+
 5. What is a Distribution?
+   The CloudFront configuration object that ties an origin (or multiple origins) to cache behaviors, TLS settings, and edge delivery rules — it's what you actually deploy and get a `*.cloudfront.net` domain (or custom domain) for.
 
 ## Caching
 6. How does CloudFront caching work?
+   On a request, the nearest edge location checks if a valid (non-expired) copy of the object exists in its cache. If yes (cache hit), it's served directly from the edge. If not (cache miss), CloudFront fetches it from the origin, caches it at the edge per the object's TTL/cache behavior, and returns it to the client — subsequent requests for that object from nearby users are then served from cache.
+
 7. What is TTL in CloudFront?
+   Time To Live — how long (seconds) an object stays cached at an edge location before CloudFront re-validates or re-fetches it from the origin. Configurable via cache behaviors, or driven by the origin's `Cache-Control`/`Expires` headers.
+
 8. What are Cache Behaviors?
+   Path-pattern-based rules on a distribution that control how CloudFront handles requests matching that path — which origin to use, TTL settings, which headers/cookies/query strings to forward, allowed HTTP methods, and viewer protocol policy. Lets one distribution serve different content types differently (e.g., `/api/*` vs `/static/*`).
+
 9. What is a Price Class?
+   A setting that controls which edge locations (regions) CloudFront is allowed to use to serve your content, trading off global coverage against cost — e.g., "Use only US, Canada, and Europe" is cheaper than "Use all edge locations worldwide."
+
 10. Can CloudFront cache dynamic content?
+    Yes, though by default dynamic content (personalized responses, API responses) is often set to bypass caching. You can still cache it with short TTLs, cache-per-header/cookie/query-string forwarding rules, or use CloudFront Functions/Lambda@Edge to customize what gets cached and how.
+
 11. How do you reduce latency in CloudFront?
+    Cache more aggressively (higher TTLs where content allows), enable compression, use HTTP/2 and keep-alive to origin, minimize origin round-trips with longer cache behaviors, and place origins in regions closer to the bulk of your users.
+
 12. How do you reduce latency globally?
+    Use CloudFront with edge locations near users worldwide, choose a Price Class covering the regions your users are in, use Origin Shield to reduce origin fetches, enable Anycast-based routing, and pair with Route53 latency-based routing or Global Accelerator for the non-cacheable/dynamic portion of traffic.
 
 ## Security
 13. How do you enable HTTPS in CloudFront?
+    Attach an SSL/TLS certificate (via AWS Certificate Manager, issued in `us-east-1` for CloudFront) to the distribution and set the Viewer Protocol Policy to "HTTPS only" or "Redirect HTTP to HTTPS."
+
 14. Where is SSL terminated in CloudFront?
+    At the edge location — CloudFront terminates the viewer's TLS connection at the nearest edge. It can then optionally re-establish a separate TLS connection to the origin (origin protocol policy), so origin traffic can also be encrypted end-to-end.
+
 15. How does CloudFront integrate with WAF?
+    You attach an AWS WAF Web ACL directly to a CloudFront distribution. WAF inspects requests at the edge before they're processed/cached, blocking or rate-limiting malicious traffic (SQLi, XSS, bad bots, rate-based rules) before it ever reaches your origin.
+
 16. What is Geo Restriction?
+    A distribution-level setting that allows or blocks access based on the viewer's country (using an allowlist or denylist of country codes), useful for content licensing or compliance restrictions.
+
 17. Can CloudFront work with a private S3 bucket?
+    Yes — using Origin Access Control (OAC, the modern replacement for the older OAI), CloudFront is granted permission to read from a private S3 bucket, while the bucket itself blocks all direct public access. This forces all traffic through CloudFront.
+
 18. What is a Signed URL?
+    A URL with an attached signature and expiration (and optionally IP restriction) generated using a CloudFront key pair, granting time-limited access to a specific private object — used to share individual protected files.
+
 19. What is a Signed Cookie?
+    Similar to a signed URL but grants access to multiple restricted objects (e.g., an entire private video library) via cookies set on the client, so you don't need to sign every individual URL.
 
 ## Advanced Features
 20. What is CloudFront Behavior?
+    Same concept as Cache Behavior — a routing/caching rule scoped to a URL path pattern within a distribution (see Q8).
+
 21. What happens if the origin is down?
+    Cached objects continue to be served from edge locations until their TTL expires. Once expired, CloudFront attempts to fetch from the origin and will return an error (e.g., 502/504) to the client unless Origin Failover is configured, or `Stale-While-Revalidate`/custom error responses are set up to serve stale content temporarily.
+
 22. What is Origin Failover?
+    A CloudFront feature where you configure an Origin Group with a primary and a secondary origin. If the primary origin returns specific failure status codes, CloudFront automatically retries the request against the secondary origin — providing origin-level high availability.
+
 23. What is Lambda@Edge?
+    A feature letting you run Lambda functions (Node.js/Python) at CloudFront edge locations, triggered at four points in the request/response cycle (viewer request, origin request, origin response, viewer response) — used for things like header manipulation, A/B testing, auth checks, or URL rewrites closer to the user. (CloudFront Functions is a lighter-weight, JS-only alternative for simpler, higher-throughput use cases.)
 
 ## Configuration
 24. How do you secure an S3 website using CloudFront?
+    Make the S3 bucket private (block all public access), create a CloudFront distribution with the bucket as origin using Origin Access Control so only CloudFront can read it, enforce HTTPS via the viewer protocol policy, and optionally attach WAF for additional protection.
+
 25. How do you configure CloudFront with S3?
+    Create a distribution, set the S3 bucket (or its website endpoint, for static site hosting with redirects/index docs) as the origin, configure OAC for private-bucket access, set cache behaviors/TTLs, and attach a certificate/custom domain as needed.
+
 26. How do you configure CloudFront with ALB?
+    Set the ALB's DNS name as a custom origin on the distribution, choose the origin protocol policy (HTTP/HTTPS to origin), configure cache behaviors (often with caching disabled or minimal for dynamic APIs), and attach the ACM certificate for the viewer-facing domain.
+
 27. Difference between CloudFront and ALB?
+    **CloudFront** is a global CDN — it caches and serves content from edge locations worldwide, primarily optimizing for latency and offload at the edge. **ALB** is a regional Layer 7 load balancer — it distributes incoming traffic across backend targets (EC2, ECS, Lambda) within a region/VPC and doesn't cache content. They're often used together: CloudFront in front of an ALB for global caching + edge security, with the ALB handling regional load balancing to the actual compute.
